@@ -1,0 +1,59 @@
+set(libboost_srcs
+	"${libboost_rootdir}/libs/smart_ptr/src/sp_collector.cpp"
+	"${libboost_rootdir}/libs/smart_ptr/src/sp_debug_hooks.cpp"
+	"${libboost_rootdir}/libs/program_options/src/convert.cpp"
+	"${libboost_rootdir}/libs/program_options/src/parsers.cpp"
+	"${libboost_rootdir}/libs/program_options/src/value_semantic.cpp"
+	"${libboost_rootdir}/libs/program_options/src/config_file.cpp"
+	"${libboost_rootdir}/libs/program_options/src/split.cpp"
+	"${libboost_rootdir}/libs/program_options/src/variables_map.cpp"
+	"${libboost_rootdir}/libs/program_options/src/options_description.cpp"
+	"${libboost_rootdir}/libs/program_options/src/utf8_codecvt_facet.cpp"
+	"${libboost_rootdir}/libs/program_options/src/winmain.cpp"
+	"${libboost_rootdir}/libs/program_options/src/cmdline.cpp"
+	"${libboost_rootdir}/libs/program_options/src/positional_options.cpp"
+	"${libboost_rootdir}/libs/date_time/src/gregorian/greg_month.cpp"
+	"${libboost_rootdir}/libs/date_time/src/gregorian/date_generators.cpp"
+	"${libboost_rootdir}/libs/date_time/src/gregorian/gregorian_types.cpp"
+	"${libboost_rootdir}/libs/date_time/src/gregorian/greg_weekday.cpp"
+	"${libboost_rootdir}/libs/date_time/src/posix_time/posix_time_types.cpp"
+	"${libboost_rootdir}/libs/thread/src/future.cpp"
+	"${libboost_rootdir}/libs/thread/src/tss_null.cpp"
+	"${libboost_rootdir}/libs/system/src/error_code.cpp"
+	"${libboost_rootdir}/libs/regex/src/regex.cpp"
+	"${libboost_rootdir}/libs/regex/src/cpp_regex_traits.cpp"
+	"${libboost_rootdir}/libs/regex/src/instances.cpp"
+	"${libboost_rootdir}/libs/regex/src/cregex.cpp"
+	"${libboost_rootdir}/libs/regex/src/icu.cpp"
+	"${libboost_rootdir}/libs/regex/src/fileiter.cpp"
+	"${libboost_rootdir}/libs/regex/src/wide_posix_api.cpp"
+	"${libboost_rootdir}/libs/regex/src/regex_traits_defaults.cpp"
+	"${libboost_rootdir}/libs/regex/src/usinstances.cpp"
+	"${libboost_rootdir}/libs/regex/src/wc_regex_traits.cpp"
+	"${libboost_rootdir}/libs/regex/src/w32_regex_traits.cpp"
+	"${libboost_rootdir}/libs/regex/src/posix_api.cpp"
+	"${libboost_rootdir}/libs/regex/src/regex_raw_buffer.cpp"
+	"${libboost_rootdir}/libs/regex/src/winstances.cpp"
+	"${libboost_rootdir}/libs/regex/src/regex_debug.cpp"
+	"${libboost_rootdir}/libs/regex/src/c_regex_traits.cpp"
+	"${libboost_rootdir}/libs/regex/src/static_mutex.cpp"
+	"${libboost_rootdir}/libs/regex/tools/generate/tables.cpp"
+	"${libboost_rootdir}/libs/exception/src/clone_current_exception_non_intrusive.cpp"
+	"${libboost_rootdir}/libs/atomic/src/lockpool.cpp"
+)
+
+if (WIN32)
+	set(libboost_srcs
+		${libboost_srcs}
+		"${libboost_rootdir}/libs/thread/src/win32/thread.cpp"
+		"${libboost_rootdir}/libs/thread/src/win32/tss_pe.cpp"
+		"${libboost_rootdir}/libs/thread/src/win32/tss_dll.cpp"
+	)
+else()
+	set(libboost_srcs
+		${libboost_srcs}
+		"${libboost_rootdir}/libs/thread/src/pthread/thread.cpp"
+		"${libboost_rootdir}/libs/thread/src/pthread/once.cpp"
+		"${libboost_rootdir}/libs/thread/src/pthread/once_atomic.cpp"
+	)
+endif()
